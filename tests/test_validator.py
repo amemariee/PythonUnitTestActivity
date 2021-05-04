@@ -7,6 +7,17 @@ class TestValidator(unittest.TestCase):
 
     def setUp(self):
         self.validator = Validator()
+        
+    def test_it_will_reject_a_username_with_special_characters(self):
+        # Assume
+        username = 'Reval$'
+
+        # Action
+        result = self.validator.username_is_valid(username)
+
+        # Assert
+        self.assertFalse(result)
+        
 
     def test_it_will_reject_username_if_too_long(self):
         # Assume
